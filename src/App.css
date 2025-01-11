@@ -1,2 +1,14 @@
-main {
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;'
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .generateBtn {
+    font-size: 14px;
+  }
 }
