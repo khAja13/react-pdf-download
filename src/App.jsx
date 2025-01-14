@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { jsPDF } from "jspdf";
-import "./App.css"
+import "./App.css";
 
 const App = () => {
   const [name, setName] = useState("");
@@ -13,10 +13,12 @@ const App = () => {
 
     // Getting the current date and formatting it
     const currentDate = new Date();
-    const formattedDate = `${currentDate.getDate()}/${currentDate.getMonth() + 1}/${currentDate.getFullYear()}`;
+    const formattedDate = `${currentDate.getDate()}/${
+      currentDate.getMonth() + 1
+    }/${currentDate.getFullYear()}`;
 
     // Centering the company name in the PDF
-    const companyName = "XYZ Corporation";
+    const companyName = "ABCD Academy";
     const pageWidth = doc.internal.pageSize.getWidth();
     const companyNameWidth = doc.getTextWidth(companyName);
     const xPos = (pageWidth - companyNameWidth) / 2;
@@ -44,10 +46,10 @@ const App = () => {
     // Saving the PDF
     doc.save(fileName);
 
-    setName("")
-    setFatherName("")
-    setMonth("")
-    setAmount("")
+    setName("");
+    setFatherName("");
+    setMonth("");
+    setAmount("");
   };
 
   return (
@@ -73,12 +75,32 @@ const App = () => {
       </div>
       <div style={styles.formGroup}>
         <label style={styles.label}>Month: </label>
-        <input
+        {/* <input
           type="text"
           value={month}
           onChange={(e) => setMonth(e.target.value)}
           style={styles.inputField}
-        />
+        /> */}
+        
+        <select
+          value={month}
+          onChange={(e) => setMonth(e.target.value)}
+          style={styles.inputField}
+        >
+          <option value="">Select a month</option>
+          <option value="January">January</option>
+          <option value="February">February</option>
+          <option value="March">March</option>
+          <option value="April">April</option>
+          <option value="May">May</option>
+          <option value="June">June</option>
+          <option value="July">July</option>
+          <option value="August">August</option>
+          <option value="September">September</option>
+          <option value="October">October</option>
+          <option value="November">November</option>
+          <option value="December">December</option>
+        </select>
       </div>
       <div style={styles.formGroup}>
         <label style={styles.label}>Amount: </label>
@@ -100,7 +122,7 @@ const App = () => {
 const styles = {
   container: {
     width: "90%",
-    maxWidth: "500px",  // Maximum width of the form
+    maxWidth: "500px", // Maximum width of the form
     margin: "50px auto",
     padding: "20px",
     borderRadius: "8px",
@@ -140,6 +162,5 @@ const styles = {
     cursor: "pointer",
   },
 };
-
 
 export default App;
